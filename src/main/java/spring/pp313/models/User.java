@@ -93,6 +93,11 @@ public class User implements UserDetails {
 
     public Set<Role> getRole() {
         return roles;
+        //.toString().substring(1, roles.toString().length() - 1).replaceAll("ROLE_", "");
+    }
+
+    public String cutRole() {
+        return roles.toString().substring(1, roles.toString().length() - 1).replaceAll("ROLE_", "");
     }
 
     public void setRole(Set<Role> roles) {

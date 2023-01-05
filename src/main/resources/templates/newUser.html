@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-<h2>Создать нового пользователя</h2>
+<h2>Создать пользователя</h2>
 <form th:method="POST" th:action="@{/admin}" th:object="${user}">
     <label for="name">Имя: </label>
     <input type="text" th:field="*{name}" id="name" required>
@@ -40,18 +40,22 @@
     <input type="password" th:field="*{password}" id="password" required>
     <br>
     <br>
-    <label>Права доступа:
+    <label>Уровень доступа:
         <input type="checkbox" name="roles"
                th:each="role : ${rolesAdd}"
                th:value="${role.getId()}"
-               th:text="${role.getName()}"
+               th:text="${role.cutName()}"
                th:field="*{role}"
         />
     </label>
     <br>
     <br>
     <input type="submit" value="Добавить пользователя">
+    <br>
+    <br>
 </form>
-
+<form th:action="@{/logout}" th:method="POST" target="_self">
+    <button>Выйти</button>
+</form>
 </body>
 </html>
