@@ -6,20 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import spring.pp313.models.Role;
 import spring.pp313.models.User;
-import spring.pp313.services.RoleServiceImpl;
-import spring.pp313.services.UserServiceImpl;
+import spring.pp313.services.RoleService;
+import spring.pp313.services.UserService;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
-    private final RoleServiceImpl roleService;
+    private final RoleService roleService;
 
     @Autowired
-    public AdminController(UserServiceImpl userService, RoleServiceImpl roleService) {
+    public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }
